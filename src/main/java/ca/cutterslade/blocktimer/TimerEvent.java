@@ -62,7 +62,7 @@ public final class TimerEvent implements Comparable<TimerEvent> {
 
   @Override
   public int compareTo(final TimerEvent o) {
-    return null == o ? 1 : this == o ? 0 : ComparisonChain.start()
+    return null == o ? 1 : this == o || equals(o) ? 0 : ComparisonChain.start()
         .compare(getStartDate(), o.getStartDate())
         .compare(o.getStartNanos() - getStartNanos(), 0L)
         .compare(o.getEndNanos() - getEndNanos(), 0L)
